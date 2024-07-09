@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
+import { UserComponent } from "./user/user.component";
 
 
 @Component({
@@ -10,9 +11,10 @@ import { HeaderComponent } from "./header/header.component";
     // podemos usar varios styles, so adicionar como stylesUrls: []
     styleUrl: './app.component.scss',
     imports: [
-        RouterOutlet,
-        HeaderComponent,
-    ]
+    RouterOutlet,
+    HeaderComponent,
+    UserComponent
+]
 })
 export class AppComponent {
     title = 'angular-study';
