@@ -48,9 +48,6 @@
 - Criando classes
 `ng g class {nome_class}`
 
-- Criando interfaces
-`ng g interfaces {nome_interface}`
-
 - Build de produção
 `ng build --prod`
 
