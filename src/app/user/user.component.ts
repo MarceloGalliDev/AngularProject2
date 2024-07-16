@@ -50,7 +50,10 @@ export class UserComponent {
     // name = input.required<string>();
 
     // essa instancia usando EventEmitter() emiti valores personalizados por meio dessa propriedade select para qualquer componente pai
-    @Output() select = new EventEmitter();
+    @Output() select = new EventEmitter<string>();
+
+    // aqui podemos usar uma sintaxe mais moderna
+    // select = output<string>();
 
     get imagePath() {
         return 'assets/users/' + this.avatar;
