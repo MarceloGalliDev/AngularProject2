@@ -1,4 +1,4 @@
-import { Component, Input, computed, signal } from '@angular/core';
+import { Component, Input, computed, signal, input } from '@angular/core';
 import { DUMMY_USERS } from '../dammy-users';
 
 // função fora da classe
@@ -38,8 +38,15 @@ export class UserComponent {
 
     //-----1 parte-----
 
-    @Input() avatar!: string;
-    @Input() name!: string;
+    // // o uso do decorador @Input é para definir propriedades passadas de pai para filho
+    // // o uso do required: true, isso marca a propriedade como true, caso contrario volta um erro
+    // @Input({ required: true }) avatar!: string;
+    // @Input({ required: true }) name!: string;
+
+    // // também posso usar nesse formato
+    // avatar = input<string>('');
+    avatar = input.required<string>();
+    name = input.required<string>();
 
     get imagePath() {
         return 'assets/users/' + this.avatar;
