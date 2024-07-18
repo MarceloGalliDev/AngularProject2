@@ -50,6 +50,15 @@
 
 - Build de produção
 `ng build --prod`
+`ng build {path} --watch`
+
+- Live Reload
+`ng `
+
 
 ### Instalando Angular Material
 `ng add @angular/material`
+
+
+## Instalando pacotes
+`npm install {path/dist}`
