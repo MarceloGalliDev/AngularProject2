@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tasks.component.scss'
 })
 export class TasksComponent {
-    @Input({ required: true }) name!: string;
+    // aqui podemos indicar que o name pode ser string ou undefined
+    @Input() name?: string;
 }

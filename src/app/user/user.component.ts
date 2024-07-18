@@ -3,7 +3,20 @@ import { DUMMY_USERS } from '../dammy-users';
 
 // função fora da classe
 // todas vez que iniciar a tela ele roda esse comando
-const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+// const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+
+// criando tipagem type ou interface
+// type User = {
+//     id: string;
+//     avatar: string;
+//     name: string;
+// };
+
+interface User {
+    id: string;
+    avatar: string;
+    name: string;
+};
 
 @Component({
   selector: 'app-user',
@@ -40,9 +53,13 @@ export class UserComponent {
 
     // o uso do decorador @Input é para definir propriedades passadas de pai para filho
     // o uso do required: true, isso marca a propriedade como true, caso contrario volta um erro
-    @Input({ required: true }) id!: string;
-    @Input({ required: true }) avatar!: string;
-    @Input({ required: true }) name!: string;
+    // com o required: true, isso marca a propriedade como obrigatória, tornando o ! para type script seguro
+    // @Input({ required: true }) id!: string;
+    // @Input({ required: true }) avatar!: string;
+    // @Input({ required: true }) name!: string;
+
+    // aqui sintetizamos o objeto user do typescript
+    @Input({ required: true }) user!: User;
 
     // // também posso usar nesse formato
     // avatar = input<string>('');
@@ -56,7 +73,7 @@ export class UserComponent {
     // select = output<string>();
 
     get imagePath() {
-        return 'assets/users/' + this.avatar;
+        return 'assets/users/' + this.user.avatar;
     }
 
     // aqui precisamos transformar avatar em uma função devido a inclusão do signals
@@ -66,6 +83,6 @@ export class UserComponent {
 
     // aqui nesse this.select.emit(this.id) eu estou passando os dados do usuário sempre que acessado
     onSelectUser() {
-        this.select.emit(this.id);
+        this.select.emit(this.user.id);
     }
 }
