@@ -24,7 +24,7 @@ export class AppComponent {
     users = DUMMY_USERS;
 
     // criando variável de inicialização
-    selectedUserId = 'n1';
+    selectedUserId?: string;
 
     // buscando os dados do id selecionado
     // o uso do ! no final do código é para indicar ao type script que nunca sera um valor nulo ou invalido

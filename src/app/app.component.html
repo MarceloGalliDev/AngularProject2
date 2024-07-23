@@ -2,16 +2,23 @@
 
 <main>
     <ul id="users">
+        <!-- o uso do track é para indicar o dado unico a ser inputado para cada user -->
         @for (user of users; track user.id) {
             <li>
                 <app-user
-                    [user]="users[0]"
+                    [user]="user"
                     (select)="onSelectUser($event)"
                 />
             </li>
         }
     </ul>
+
     <!-- aqui usamos um fallback, para retornar o erro se for o caso -->
-    <app-tasks [name]="selectedUser ? selectedUser.name : ''"/>
+    <!-- com o uso do @if deixamos definido o user que vai vir aqui, assim nunca tera erro de ts -->
+    @if (selectedUser) {
+        <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name"/>
+    } @else {
+        <p id="fallback">Select a user to see their tasks!</p>
+    }
 
 </main>
